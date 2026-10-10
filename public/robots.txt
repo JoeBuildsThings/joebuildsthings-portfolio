@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joebuildsthings.vercel.app/sitemap-index.xml

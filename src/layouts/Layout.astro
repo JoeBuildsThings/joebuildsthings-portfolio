@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import Rain from '../components/Rain.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Adebiyi Joseph Ayomide (JoeBuildsThings) | Software Developer',
+  description = 'Adebiyi Joseph Ayomide, known online as JoeBuildsThings, is a software developer in Osogbo, Nigeria. He builds web applications, practices ethical hacking and builds AI agents, and is open to remote roles and freelance work.',
+} = Astro.props;
+
+const site = (Astro.site ?? new URL('https://joebuildsthings.vercel.app')).toString().replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, site).toString();
+const ogImage = new URL('/joe.png', site).toString();
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Adebiyi Joseph Ayomide',
+  alternateName: 'JoeBuildsThings',
+  givenName: 'Adebiyi',
+  additionalName: 'Joseph',
+  familyName: 'Ayomide',
+  url: site,
+  image: ogImage,
+  email: 'mailto:adebiyijosephayomide@gmail.com',
+  jobTitle: 'Software Developer',
+  description: 'Software developer building web applications, practising ethical hacking, and building AI agents.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Osogbo',
+    addressCountry: 'NG',
+  },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Osun State University',
+    alternateName: 'UNIOSUN',
+  },
+  knowsAbout: ['Web applications', 'Ethical hacking', 'Cybersecurity', 'AI agents', 'Backend development'],
+  sameAs: [
+    'https://github.com/JoeBuildsThings',
+    'https://x.com/Adebiyijoseph_',
+    'https://www.instagram.com/adebiyijosephayomide',
+    'https://www.facebook.com/adebiyi.joseph.ayomide',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0A0E0B" />
+    <meta name="author" content="Adebiyi Joseph Ayomide" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="JoeBuildsThings" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_NG" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@Adebiyijoseph_" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body>
+    <Rain />
+    <slot />
+  </body>
+</html>

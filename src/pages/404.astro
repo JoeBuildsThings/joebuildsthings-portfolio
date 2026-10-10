@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page not found | JoeBuildsThings"
+  description="That page does not exist. Head back to the homepage."
+>
+  <main class="wrap">
+    <p class="code">404</p>
+    <h1>That page does not exist.</h1>
+    <p class="sub">
+      The path you followed leads nowhere. Head back to the homepage and pick a real one.
+    </p>
+    <a class="btn solid" href="/">Back to homepage</a>
+  </main>
+</Layout>
+
+<style>
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    display: grid;
+    gap: 20px;
+    align-content: center;
+    min-height: 80vh;
+  }
+
+  .code {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+  }
+
+  h1 {
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 700;
+  }
+
+  .sub {
+    color: var(--color-muted);
+    font-size: 15px;
+    max-width: 46ch;
+  }
+
+  .btn {
+    justify-self: start;
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 13px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    color: var(--color-ink);
+  }
+
+  .btn.solid {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #06110A;
+    font-weight: 600;
+  }
+
+  .btn.solid:hover {
+    background: var(--color-accent-bright);
+    border-color: var(--color-accent-bright);
+  }
+</style>

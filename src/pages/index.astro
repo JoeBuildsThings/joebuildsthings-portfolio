@@ -1,16 +1,393 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Terminal from '../components/Terminal.astro';
+
+const projects = [
+  {
+    name: 'Synsorempire',
+    url: 'https://synsorempire.vercel.app',
+    tags: ['Client work', 'Commerce', 'Live'],
+    desc: 'A fashion store for Synsorempire in Ibadan. Customers browse corporate wear, formal shoes, sneakers, streetwear, caps, belts and bags, then order on WhatsApp. Every item carries a unique product code that lands in the order message, so the owner knows exactly what was ordered. Includes a private admin area for adding, editing, featuring, hiding and deleting products, with images compressed before upload. Built for a real paying client.',
+  },
+  {
+    name: 'JOEBOT',
+    url: 'https://github.com/JoeBuildsThings',
+    tags: ['AI agent', 'Developer tool', 'In development'],
+    desc: 'A terminal AI agent with real tool calling. Reads files, searches code, runs shell commands and searches the live web. Asks approval before writing files or running commands, blocks destructive patterns and sandboxes file access. Routes across several AI providers and falls back automatically when one runs out of quota. Keeps personal memory.',
+  },
+  {
+    name: 'GameDeck',
+    url: 'https://github.com/JoeBuildsThings',
+    tags: ['Android', 'Performance', 'Tool'],
+    desc: 'A rootless performance overlay for Android 10 to 14. Live FPS, frame time, CPU, RAM and battery thermals in a single HUD. Reversible gaming profiles with one tap restore. Uses Shizuku and hard blocks system packages from being touched.',
+  },
+  {
+    name: 'CGPA Calculator',
+    url: 'https://github.com/JoeBuildsThings',
+    tags: ['Web app', 'Student tool'],
+    desc: 'A CGPA calculator built for the UNIOSUN 5.0 grading scale, not the generic 4.0. Multi semester tracking, running CGPA and local saving.',
+  },
+  {
+    name: 'Vibeo',
+    url: 'https://github.com/JoeBuildsThings',
+    tags: ['Social', 'In development'],
+    desc: 'A social app combining Facebook style feeds with WhatsApp style messaging.',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="mark" href="/">JoeBuildsThings</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="mailto:adebiyijosephayomide@gmail.com">Email me</a>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="copy">
+        <h1>I build web apps that ship, then break them on purpose to make them secure.</h1>
+        <p class="sub">
+          Software developer in Osogbo, Nigeria. Web applications first, then ethical hacking and
+          security, then the AI agents that sit on top. Mostly backend focused. Currently a student
+          at UNIOSUN, shipping alongside my studies.
+        </p>
+        <div class="cta">
+          <a class="btn solid" href="mailto:adebiyijosephayomide@gmail.com">Email me about a role</a>
+          <a class="btn" href="#work">See what I built</a>
+        </div>
+      </div>
+
+      <div class="visual">
+        <img
+          class="portrait"
+          src="/joe.png"
+          alt="Adebiyi Joseph Ayomide"
+          width="480"
+          height="480"
+          loading="eager"
+          decoding="async"
+        />
+
+        <Terminal>
+          <p><span class="p">$</span>whoami</p>
+          <p class="out">Adebiyi Joseph Ayomide</p>
+          <p><span class="p">$</span>cat focus.txt</p>
+          <p class="out">web applications, ethical hacking, AI agents</p>
+          <p><span class="p">$</span>status</p>
+          <p class="out">Open to remote roles and freelance work</p>
+          <p><span class="p">$</span><span class="caret"></span></p>
+        </Terminal>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <p class="label">Work</p>
+      <h2>Five things I built, one of them for a paying client.</h2>
+
+      <div class="grid">
+        {projects.map((p) => (
+          <article class="card">
+            <h3>{p.name}</h3>
+            <p class="desc">{p.desc}</p>
+            <div class="meta">
+              <ul class="tags">
+                {p.tags.map((t) => <li>{t}</li>)}
+              </ul>
+              <a class="open" href={p.url} target="_blank" rel="noopener">
+                Open project <span aria-hidden="true">-&gt;</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <p class="label">About</p>
+      <h2>Who I am, in three commands.</h2>
+
+      <Terminal label="joe@osogbo: ~/about">
+        <p><span class="p">$</span>whoami</p>
+        <p class="out">Adebiyi Joseph Ayomide, software developer in Osogbo, Nigeria.</p>
+        <p><span class="p">$</span>cat about.txt</p>
+        <p class="out">
+          I build web applications first, then the security and AI work around them. Mostly backend
+          focused. Currently a student at UNIOSUN, shipping software alongside my studies.
+        </p>
+        <p><span class="p">$</span>cat learning.txt</p>
+        <p class="out">
+          Cybersecurity fundamentals, self paced, working toward ISC2 CC and CompTIA Security+.
+        </p>
+        <p><span class="p">$</span><span class="caret"></span></p>
+      </Terminal>
+    </section>
+
+    <section id="contact" class="contact">
+      <p class="label">Contact</p>
+      <h2>Open to remote roles, freelance work and collaborations.</h2>
+      <p class="sub">
+        Web apps, AI powered tools and developer focused products. If you have something in that
+        shape, send it my way.
+      </p>
+
+      <ul class="links">
+        <li>
+          <span>Email</span>
+          <a href="mailto:adebiyijosephayomide@gmail.com">adebiyijosephayomide@gmail.com</a>
+        </li>
+        <li>
+          <span>GitHub</span>
+          <a href="https://github.com/JoeBuildsThings" target="_blank" rel="noopener">JoeBuildsThings</a>
+        </li>
+        <li>
+          <span>X</span>
+          <a href="https://x.com/Adebiyijoseph_" target="_blank" rel="noopener">Adebiyijoseph_</a>
+        </li>
+        <li>
+          <span>Instagram</span>
+          <a href="https://www.instagram.com/adebiyijosephayomide" target="_blank" rel="noopener">adebiyijosephayomide</a>
+        </li>
+        <li>
+          <span>Facebook</span>
+          <a href="https://www.facebook.com/adebiyi.joseph.ayomide" target="_blank" rel="noopener">adebiyi.joseph.ayomide</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Adebiyi Joseph Ayomide</p>
+    <p class="muted">JoeBuildsThings {new Date().getFullYear()}</p>
+  </footer>
+</Layout>
+
+<style>
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 10px 14px;
+    z-index: 100;
+  }
+  .skip:focus { left: 12px; top: 12px; }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 22px 20px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .mark { font-weight: 700; letter-spacing: -0.02em; margin-right: auto; }
+
+  .nav nav {
+    display: none;
+    gap: 22px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .nav nav a:hover { color: var(--color-accent); }
+
+  .btn {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 10px 16px;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    color: var(--color-ink);
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  .btn.solid {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #06110A;
+    font-weight: 600;
+  }
+
+  .btn.solid:hover {
+    background: var(--color-accent-bright);
+    border-color: var(--color-accent-bright);
+    color: #06110A;
+  }
+
+  .hero {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 20px 72px;
+    display: grid;
+    gap: 36px;
+  }
+
+  h1 { font-size: clamp(27px, 6vw, 48px); font-weight: 700; max-width: 24ch; }
+
+  .sub {
+    margin-top: 20px;
+    color: var(--color-muted);
+    max-width: 58ch;
+    font-size: 15px;
+  }
+
+  .cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .visual { display: grid; gap: 20px; }
+
+  .portrait {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--color-line);
+    filter: grayscale(100%) contrast(1.05);
+  }
+
+  .label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .label::before { content: "// "; color: var(--color-accent-dim); }
+
+  .work, .about, .contact {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  h2 { font-size: clamp(22px, 4.5vw, 34px); font-weight: 700; max-width: 28ch; }
+
+  .grid { margin-top: 36px; display: grid; gap: 16px; }
+
+  .card {
+    border: 1px solid var(--color-line);
+    background: var(--color-panel);
+    border-radius: 6px;
+    padding: 22px 20px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .card h3 { font-size: 19px; font-weight: 700; }
+
+  .desc { color: var(--color-muted); font-size: 14px; }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+
+  .tags li {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    padding: 4px 8px;
+  }
+
+  .open {
+    font-size: 13px;
+    color: var(--color-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.15s ease;
+  }
+
+  .open:hover { gap: 12px; color: var(--color-accent-bright); }
+
+  .about :global(.terminal) { margin-top: 36px; }
+
+  .contact .sub { margin-top: 16px; }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 36px 0 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .links li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: 14px;
+  }
+
+  .links span {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .links a { color: var(--color-ink); }
+  .links a:hover { color: var(--color-accent); }
+
+  .foot {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 900px) {
+    .nav { padding: 24px 32px; }
+    .nav nav { display: flex; }
+    .hero {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 56px;
+      padding: 96px 32px 112px;
+    }
+    .sub { font-size: 16px; }
+    .portrait { max-width: 260px; }
+    .work, .about, .contact { padding: 96px 32px; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card:first-child { grid-column: 1 / -1; }
+    .foot { padding: 32px 32px 56px; }
+  }
+</style>
