@@ -55,7 +55,7 @@ const projects = [
       <div class="copy">
         <h1>I build web apps that ship, then break them on purpose to make them secure.</h1>
         <p class="sub">
-          Software developer in Osogbo, Nigeria. Web applications first, then ethical hacking and
+          Software developer in Nigeria. Web applications first, then ethical hacking and
           security, then the AI agents that sit on top. Mostly backend focused. Currently a student
           at UNIOSUN, shipping alongside my studies.
         </p>
@@ -114,7 +114,7 @@ const projects = [
       <p class="label">About</p>
       <h2>Who I am, in three commands.</h2>
 
-      <Terminal label="joe@osogbo: ~/about">
+      <Terminal label="joe@ng: ~/about">
         <p><span class="p">$</span>whoami</p>
         <p class="out">Adebiyi Joseph Ayomide, software developer in Osogbo, Nigeria.</p>
         <p><span class="p">$</span>cat about.txt</p>
@@ -128,6 +128,41 @@ const projects = [
         </p>
         <p><span class="p">$</span><span class="caret"></span></p>
       </Terminal>
+    </section>
+
+
+    <section id="faq" class="faq">
+      <p class="label">FAQ</p>
+      <h2>Questions people actually ask.</h2>
+
+      <div class="qa">
+        <details>
+          <summary>Who is Adebiyi Joseph Ayomide?</summary>
+          <p>
+            Adebiyi Joseph Ayomide is a software developer based in Osogbo, Nigeria, known online
+            as JoeBuildsThings. He builds web applications first, then the security and AI work
+            around them, and is a student at UNIOSUN shipping software alongside his studies.
+          </p>
+        </details>
+
+        <details>
+          <summary>What does JoeBuildsThings do?</summary>
+          <p>
+            JoeBuildsThings is the handle Adebiyi Joseph Ayomide ships under. The work covers web
+            applications for real clients, ethical hacking and security practice, and AI agents
+            that read files, run commands and search the live web.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is Adebiyi Joseph Ayomide available for hire?</summary>
+          <p>
+            Yes. He is open to remote roles, freelance projects and collaborations on web apps,
+            AI powered tools and developer focused products. Reach him at
+            adebiyijosephayomide@gmail.com.
+          </p>
+        </details>
+      </div>
     </section>
 
     <section id="contact" class="contact">
@@ -375,6 +410,102 @@ const projects = [
     justify-content: space-between;
     font-size: 13px;
     color: var(--color-muted);
+  }
+
+
+  .faq {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .qa { margin-top: 36px; display: grid; gap: 0; border-top: 1px solid var(--color-line); }
+
+  .qa details {
+    border-bottom: 1px solid var(--color-line);
+    padding: 18px 0;
+  }
+
+  .qa summary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .qa summary::-webkit-details-marker { display: none; }
+
+  .qa summary::after {
+    content: "+";
+    color: var(--color-accent);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .qa details[open] summary::after { content: "-"; }
+
+  .qa p {
+    margin-top: 12px;
+    color: var(--color-muted);
+    font-size: 14px;
+    max-width: 68ch;
+  }
+
+  @media (min-width: 900px) {
+    .faq { padding: 96px 32px; }
+  }
+
+
+  .faq {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 20px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .qa { margin-top: 36px; display: grid; gap: 0; border-top: 1px solid var(--color-line); }
+
+  .qa details {
+    border-bottom: 1px solid var(--color-line);
+    padding: 18px 0;
+  }
+
+  .qa summary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .qa summary::-webkit-details-marker { display: none; }
+
+  .qa summary::after {
+    content: "+";
+    color: var(--color-accent);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .qa details[open] summary::after { content: "-"; }
+
+  .qa p {
+    margin-top: 12px;
+    color: var(--color-muted);
+    font-size: 14px;
+    max-width: 68ch;
+  }
+
+  @media (min-width: 900px) {
+    .faq { padding: 96px 32px; }
   }
 
   @media (min-width: 900px) {

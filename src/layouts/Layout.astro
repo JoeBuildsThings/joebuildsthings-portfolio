@@ -9,12 +9,44 @@ interface Props {
 
 const {
   title = 'Adebiyi Joseph Ayomide (JoeBuildsThings) | Software Developer',
-  description = 'Adebiyi Joseph Ayomide, known online as JoeBuildsThings, is a software developer in Osogbo, Nigeria. He builds web applications, practices ethical hacking and builds AI agents, and is open to remote roles and freelance work.',
+  description = 'Adebiyi Joseph Ayomide, known online as JoeBuildsThings, is a software developer in Nigeria. He builds web applications, practices ethical hacking and builds AI agents, and is open to remote roles and freelance work.',
 } = Astro.props;
 
 const site = (Astro.site ?? new URL('https://joebuildsthings.vercel.app')).toString().replace(/\/$/, '');
 const canonical = new URL(Astro.url.pathname, site).toString();
 const ogImage = new URL('/joe.png', site).toString();
+
+
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Who is Adebiyi Joseph Ayomide?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Adebiyi Joseph Ayomide is a software developer based in Osogbo, Nigeria, known online as JoeBuildsThings. He builds web applications first, then the security and AI work around them, and is a student at UNIOSUN shipping software alongside his studies.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does JoeBuildsThings do?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'JoeBuildsThings is the handle Adebiyi Joseph Ayomide ships under. The work covers web applications for real clients, ethical hacking and security practice, and AI agents that read files, run commands and search the live web.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Adebiyi Joseph Ayomide available for hire?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Adebiyi Joseph Ayomide is open to remote roles, freelance projects and collaborations on web apps, AI powered tools and developer focused products.',
+      },
+    },
+  ],
+};
 
 const person = {
   '@context': 'https://schema.org',
@@ -31,7 +63,7 @@ const person = {
   description: 'Software developer building web applications, practising ethical hacking, and building AI agents.',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Osogbo',
+    addressLocality: 'Nigeria',
     addressCountry: 'NG',
   },
   alumniOf: {
@@ -80,6 +112,7 @@ const person = {
     <link rel="apple-touch-icon" href="/favicon-192.png" />
 
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faq)} />
   </head>
   <body>
     <Rain />
