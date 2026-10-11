@@ -40,11 +40,12 @@ const projects = [
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="mark" href="/">JoeBuildsThings</a>
+    <a class="mark" href="/"><span class="name">Adebiyi Joseph Ayomide</span><span class="handle">JoeBuildsThings</span></a>
     <nav>
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="https://github.com/JoeBuildsThings" target="_blank" rel="noopener">GitHub</a>
     </nav>
     <a class="btn" href="mailto:adebiyijosephayomide@gmail.com">Email me</a>
   </header>
@@ -190,7 +191,9 @@ const projects = [
     border-bottom: 1px solid var(--color-line);
   }
 
-  .mark { font-weight: 700; letter-spacing: -0.02em; margin-right: auto; }
+  .mark { display: inline-flex; flex-direction: column; margin-right: auto; line-height: 1.15; }
+  .mark .name { font-weight: 700; letter-spacing: -0.02em; }
+  .mark .handle { font-size: 11px; letter-spacing: 0.1em; color: var(--color-muted); }
 
   .nav nav {
     display: none;
